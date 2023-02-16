@@ -1,21 +1,19 @@
-# Project Computer Scince for High Energy Physics
-This program is able to compute and graphicly represent the Mandelbrot set.
+# Computer Science for High Energy Physics Project
+The aim of this program is to compute and graphically plot the Mandelbrot set.
 
-The main objective of the code is to parallelize the computations needed to obtain the complex points belonging to the Mandelbrot set.
+In order to do so, the code is parallelized so that the computations required to get each single complex point of the Mandelbrot set are partitioned amongst different threads.
+In particular, the core of the program can be identified in the `tbb::parallel_for` function, which in turn gets advantage of the `tbb::blocked_range2d` structure.
 
-In order to achieve this the `tbb::parallel_for` function is used, along with other structures from tbb (such as `tbb::blocked_range2d`, which allows to divide the two dimensional range of the image into subsets which can be dealt with separatly).
+Another very important aspect of the program is to test the processing efficiency: the goal here is to find the minimum computation time when computing the Mandelbrot set, as function of the grain size. 
 
-A deeper study on the efficiency of the computation of the Mandelbrot set is also carried out by varying the grain size.
-In particular re-computing the Mandelbrot set dividing the complex plain in slices which vary in size and number.
+The entire code can be found in the *main.cpp* file, whereas the building options are contained in the *CMakeLists.txt* file. Finally, the *project.txt* file embeds the assignement of the exam.
 
-The code is contained in the file *main.cpp* while the building options are in the *CMakeLists.txt* file, the file *project.txt* contains the text of the assignement.
+This code has been uploaded on this VM and can be executed by simply running the docker image `immagine_running`.
 
-This code has been put on this virtual machine and can be executed by running the docker image `immagine_running`.
+The two images `immagine_running` and `immagine_compilazione` are built via two Dockerfiles that include the instructions to install the packages needed for the compilation and the execution of the code, along with the creation of a directory required as volume which will be then linked to a local directory.
+The Dockerfiles for the images building can be found in the corresponding directories `dir_Dockerfile_compilation` and `dir_Dockerfile_running`.
 
-The images (`immagine_running` and `immagine_compilazione`) are built via two Dockerfiles which include the instructions to install the packages needed to compile and execute the code, along with the creation of a directory required as volume which will then be linked to a local directory.
-The Dockerfiles for the images building can be found in the respective directories `dir_Dockerfile_compilation` and `dir_Dockerfile_running`.
-
-An example of the Dockerfile used to build the images is the following:
+An example of the Dockerfile used to build the images might be the following:
 
     FROM ubuntu:22.04
 
@@ -33,22 +31,18 @@ An example of the Dockerfile used to build the images is the following:
 
 
 The libraries **g++** and **cmake** are used to compile and build the project.
-The libraries libsfml-dev and libtbb-dev are needed to acces the graphical tools of __SFML__ and the parallelization functions of **TBB**.
-The git toolkit is installed to clone the directory https://github.com/LucaBalzani/Project_imapp.git containing the project.
+The libraries libsfml-dev and libtbb-dev are required in order to access the graphical tools of __SFML__ and the parallelization functions of **TBB**.
+The git toolkit is installed to clone the directory https://github.com/SimoneRuscelli/Project.git which contains the project.
 
-When creating the image used for running the program the libraries **g++**, **cmake** and **git** may not be installed, as they are not used. 
+In the creation process of the image used for running the program, the installation of the following libraries: **g++**, **cmake** and **git** can be avoided, as they are not used. 
 
 ## To run the code
-To run the program, on the proper environment, one should just build the code and run it:
+The running process of the program is then straightforward: after building the code, one can run it via:
 
     cmake -S . -B build_release -DCMAKE_BUILD_TYPE=Release
     cmake --build build_release
     build_release/mandelbrot
 
-The output of the code is then saved in the current directory.
-The output includes 4 _.png_ files and a _.txt_ file:
-- Mandelbrot.png ⟶ Representation of the Mandelbrot set in red (latest grain size tested, 800 pixels),
-- Mandelbrot_at_300.png ⟶ Representation of the Mandelbrot set in green (grain size 300 pixels),
-- Mandelbrot_at_600.png ⟶ Representation of the Mandelbrot set in blue (grain size 600 pixels),
-- Time_vs_grain_size.png ⟶ Graphical representation of the elapsed time as a function of the grain size considered,
-- Time_vs_grain_size.txt ⟶ Elapsed times for the various grain sizes used.
+Please note that the output is saved in the current directory and embeds a _.png_ file and a _.txt_ file:
+- Mandelbrot.png ⟶ Representation of the Mandelbrot set in shades of red (associated to a grain size of 800 pixels);
+- Time_vs_grain_size.txt ⟶ Elapsed times corresponding to the tested grain sizes.

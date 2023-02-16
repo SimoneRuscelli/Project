@@ -1,0 +1,30 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/mnt/c/Users/Simone/Documents/Italia_Unibo/Cpp_and_Statistics/Giacomini/progetto/Project/main.cpp
+SFML/Graphics.hpp
+-
+tbb/parallel_for.h
+-
+tbb/blocked_range2d.h
+-
+chrono
+-
+cassert
+-
+complex
+-
+iostream
+-
+string
+-
+thread
+-
+fstream
+-
+
