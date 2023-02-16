@@ -8,10 +8,10 @@ Another very important aspect of the program is to test the processing efficienc
 
 The entire code can be found in the *main.cpp* file, whereas the building options are contained in the *CMakeLists.txt* file. 
 
-This code has been uploaded on this VM and can be executed by simply running the docker image `immagine_running`.
+This code has been uploaded on this VM and can be executed by simply running the docker image `image_run`.
 
-The two images `immagine_running` and `immagine_compilazione` are built via two Dockerfiles that include the instructions to install the packages needed for the compilation and the execution of the code, along with the creation of a directory required as volume which will be then linked to a local directory.
-The Dockerfiles for the images building can be found in the corresponding directories `dir_Dockerfile_compilation` and `dir_Dockerfile_running`.
+The two images `image_run` and `image_compilation` are built via two Dockerfiles that include the instructions to install the packages needed for the compilation and the execution of the code, along with the creation of a directory required as volume which will be then linked to a local directory.
+The Dockerfiles for the images building can be found in the corresponding directories `Dockerfile_compilation` and `Dockerfile_run`.
 
 An example of the Dockerfile used to build the images might be the following:
 
