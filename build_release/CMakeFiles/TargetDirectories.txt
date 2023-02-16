@@ -1,3 +1,0 @@
-/mnt/c/Users/Simone/Documents/Italia_Unibo/Cpp_and_Statistics/Giacomini/progetto/Project/build_release/CMakeFiles/rebuild_cache.dir
-/mnt/c/Users/Simone/Documents/Italia_Unibo/Cpp_and_Statistics/Giacomini/progetto/Project/build_release/CMakeFiles/edit_cache.dir
-/mnt/c/Users/Simone/Documents/Italia_Unibo/Cpp_and_Statistics/Giacomini/progetto/Project/build_release/CMakeFiles/mandelbrot.dir

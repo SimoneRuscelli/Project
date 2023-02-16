@@ -6,7 +6,7 @@ In particular, the core of the program can be identified in the `tbb::parallel_f
 
 Another very important aspect of the program is to test the processing efficiency: the goal here is to find the minimum computation time when computing the Mandelbrot set, as function of the grain size. 
 
-The entire code can be found in the *main.cpp* file, whereas the building options are contained in the *CMakeLists.txt* file. Finally, the *project.txt* file embeds the assignement of the exam.
+The entire code can be found in the *main.cpp* file, whereas the building options are contained in the *CMakeLists.txt* file. 
 
 This code has been uploaded on this VM and can be executed by simply running the docker image `immagine_running`.
 
