@@ -41,7 +41,7 @@ int main()
   auto const delta_x = diff.real() / display_width;
   auto const delta_y = diff.imag() / display_height;
 
-  // Vector which will contain the elapsed times for the corresponding grain sizes considered
+  // Vector which wil contain the elapsed times for the corresponding grain sizes considered
   std::vector<std::pair<int, double>> elapsed_times;
 
   // Image used to create the pixel art of the Mandelbrot set
