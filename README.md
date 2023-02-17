@@ -22,7 +22,7 @@ An example of the Dockerfile used to build the images might be the following:
         cmake \
         libsfml-dev \
         libtbb-dev \
-        git-all \
+        git-all 
 
     RUN mkdir -p /workspace
     VOLUME /workspace
